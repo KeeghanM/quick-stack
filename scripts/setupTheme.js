@@ -9,6 +9,7 @@ import blueThemes from "../files/theme/blue.js"
 import greenThemes from "../files/theme/green.js"
 import coffeeThemes from "../files/theme/coffee.js"
 import bubbleGumThemes from "../files/theme/bubbleGum.js"
+import baseCssString from "../files/theme/baseCSS.js"
 
 export default async function setupTheme(theme, slugName) {
   return new Promise((resolve, reject) => {
@@ -45,7 +46,26 @@ export default async function setupTheme(theme, slugName) {
             },
             plugins`
       )
+      // And remove the default NextJS setup
+      tailwindConfig = tailwindConfig.replace(
+        `theme: {
+    extend: {
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+    },
+  },`,
+        ""
+      )
+
+      // Finally, write the new tailwind.config
       fs.writeFileSync(tailwindPath, tailwindConfig)
+
+      // We also need to replace the base CSS file to remove all the default NextJS styles
+      const baseCSSPath = path.join(process.cwd(), slugName, "src/globals.css")
+      fs.writeFileSync(baseCSSPath, baseCssString)
 
       // Now we need to install theme-change
       const themeChangeProcess = spawn("npm install", ["theme-change"], {
