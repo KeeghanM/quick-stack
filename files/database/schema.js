@@ -1,0 +1,13 @@
+const schemaString = `
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+`
+
+export default schemaString

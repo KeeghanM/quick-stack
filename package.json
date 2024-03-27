@@ -1,0 +1,23 @@
+{
+  "name": "quick-stack",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "quick-stack": "./index.js"
+  },
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "inquirer": "^9.2.7",
+    "ora": "^6.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KeeghanM/quick-stack"
+  }
+}
