@@ -15,8 +15,15 @@ export default async function runTidyup(slugName) {
     })
 
     prettierProcess.on("exit", (code) => {
-      spinner.succeed("Final tidy up complete!")
-      resolve()
+      const prismaProcess = spawn("npx", ["prisma", "generate"], {
+        shell: true,
+        cwd: path.join(process.cwd(), slugName),
+      })
+
+      prismaProcess.on("exit", (code) => {
+        spinner.succeed("Final tidy up complete!")
+        resolve()
+      })
     })
   })
 }

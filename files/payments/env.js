@@ -1,0 +1,8 @@
+const envString = `
+# Stripe
+STRIPE_PUBLIC_KEY="CHANGE-ME"
+STRIPE_SECRET_KEY="CHANGE-ME"
+STRIPE_WEBHOOK_SECRET="CHANGE-ME"
+`
+
+export default envString

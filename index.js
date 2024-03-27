@@ -11,6 +11,7 @@ import setupAuth from "./scripts/setupAuth.js"
 import setupTheme from "./scripts/setupTheme.js"
 import setupPages from "./scripts/setupPages.js"
 import setupGit from "./scripts/setupGit.js"
+import setupPayment from "./scripts/setupPayment.js"
 import runTidyup from "./scripts/runTidyup.js"
 
 const questions = [
@@ -42,7 +43,7 @@ async function main() {
   await setupAuth(slugName)
   await setupTheme(theme, slugName)
   await setupPages(slugName, name)
-  // await setupPayment(slugName)
+  await setupPayment(slugName)
   await runTidyup(slugName)
   await setupGit(slugName)
 
