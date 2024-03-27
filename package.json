@@ -1,7 +1,7 @@
 {
   "name": "quick-stack",
   "version": "0.0.1",
-  "description": "",
+  "description": "A highly opinionated stack for quickly templating out web applications that MAKE MONEY.",
   "type": "module",
   "main": "index.js",
   "bin": {
