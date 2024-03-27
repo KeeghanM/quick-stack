@@ -9,7 +9,7 @@ import paymentSchemaString from "../files/payments/schema.js"
 import createCheckoutSessionString from "../files/payments/createCheckoutSession.js"
 import checkoutSuccessString from "../files/payments/checkoutSuccess.js"
 
-export default function setupPayment(slugName) {
+export default function setupPayment(slugName, currency) {
   return new Promise((resolve, reject) => {
     let spinner = ora({
       text: "Setting up payments...",
@@ -45,7 +45,7 @@ export default function setupPayment(slugName) {
       fs.mkdirSync(createSessionPath, { recursive: true })
       fs.writeFileSync(
         `${createSessionPath}/route.ts`,
-        createCheckoutSessionString
+        createCheckoutSessionString.replace("{{ CURRENCY }}", currency)
       )
 
       // Create the checkoutSuccess file

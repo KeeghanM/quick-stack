@@ -81,26 +81,12 @@ export default async function setupTheme(theme, slugName, name) {
           "src/app/layout.tsx"
         )
         let layoutFile = fs.readFileSync(layoutPath, "utf-8")
-        // Add the imports
-        layoutFile = layoutFile.replace(
-          'import "./globals.css";',
-          `import { useEffect } from "react";
-            import "./globals.css";
-            import { themeChange } from "theme-change";`
-        )
-        // Add the useEffect
-        layoutFile = layoutFile.replace(
-          "return",
-          `useEffect(() => {
-                themeChange(false);
-            }, []);
-            return`
-        )
         // Add the data-theme
         layoutFile = layoutFile.replace(
           `<html lang="en">`,
           `<html lang="en" data-theme="light">`
         )
+
         // Change the meta data object
         layoutFile = layoutFile.replace(
           `{

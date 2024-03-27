@@ -30,6 +30,13 @@ const questions = [
     choices: ["Quick Stack", "Blue", "Green", "Bubble Gum", "Coffee"], // TODO: Add "Custom" option
     default: "Quick Stack",
   },
+  {
+    type: "list",
+    name: "currency",
+    message: "Which currency do you want to use?",
+    choices: ["USD", "EUR", "GBP", "NZD"],
+    default: "USD",
+  },
 ]
 
 async function main() {
@@ -37,13 +44,14 @@ async function main() {
   const name = answers.name
   const slugName = slugify(name)
   const theme = answers.theme
+  const currency = answers.currency
 
   await setupBase(slugName)
   await setupDatabase(slugName)
   await setupAuth(slugName)
   await setupTheme(theme, slugName, name)
   await setupPages(slugName, name)
-  await setupPayment(slugName)
+  await setupPayment(slugName, currency)
   await runTidyup(slugName)
   await setupGit(slugName)
 
