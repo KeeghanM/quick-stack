@@ -2,7 +2,7 @@ import { spawn } from "child_process"
 import ora from "ora"
 import path from "path"
 
-export default async function setupGit(slugName) {
+export default async function runTidyup(slugName) {
   return new Promise((resolve, reject) => {
     let spinner = ora({
       text: "Running final tidy up..",
