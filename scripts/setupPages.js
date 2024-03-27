@@ -12,8 +12,8 @@ export default async function setupPages(slugName, name) {
       color: "blue",
     }).start()
 
-    // Replace the {{NAME}} placeholder with the actual name
-    let updatedHomeString = homeString.replace(/{{NAME}}/g, name)
+    // Replace the {{ NAME }} placeholder with the actual name
+    let updatedHomeString = homeString.replace(/{{ NAME }}/g, name)
 
     // Write the page.tsx file
     const pagePath = path.join(

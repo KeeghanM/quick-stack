@@ -41,7 +41,7 @@ async function main() {
   await setupBase(slugName)
   await setupDatabase(slugName)
   await setupAuth(slugName)
-  await setupTheme(theme, slugName)
+  await setupTheme(theme, slugName, name)
   await setupPages(slugName, name)
   await setupPayment(slugName)
   await runTidyup(slugName)
