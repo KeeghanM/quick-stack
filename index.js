@@ -49,14 +49,9 @@ async function main() {
 
   // Show a success message
   console.log(`\n🚀 ${chalk.green(name)} is ready!`)
-  console.log(
-    `\n⚠️  Before you get started, search the codebase for ${chalk.redBright(
-      `"CHANGE-ME"`
-    )} and replace the placeholders with your own information ⚠️`
-  )
-  console.log(`\nTo start the development server, run the following commands:`)
-  console.log(`cd ${slugName}`)
-  console.log(`npm run dev`)
+  console.log(`\n⚠️ Before you get started,`)
+  console.log(`Search the codebase for ${chalk.redBright(`"CHANGE-ME"`)}`)
+  console.log(`They'll all need changing before you can run the project.`)
 }
 
 main()

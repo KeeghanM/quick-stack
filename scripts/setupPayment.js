@@ -54,7 +54,7 @@ export default function setupPayment(slugName) {
         slugName,
         "src/app/api/payments/checkoutSuccess"
       )
-      fs.mkdirSync(createSessionPath, { recursive: true })
+      fs.mkdirSync(checkoutSuccessPath, { recursive: true })
       fs.writeFileSync(`${checkoutSuccessPath}/route.ts`, checkoutSuccessString)
 
       spinner.succeed("Payment setup complete!")
